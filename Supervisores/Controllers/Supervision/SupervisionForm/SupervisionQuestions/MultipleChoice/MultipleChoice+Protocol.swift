@@ -56,7 +56,7 @@ extension MultipleChoiceView: QuestionProtocol {
         let bottom = self.lblLegend.frame.maxY
         if self.breachReason == nil {
             let rectBRView = CGRect(x: 0, y: self.bounds.height, width: self.bounds.width, height: parentView.bounds.height - bottom)
-            self.breachReason = self.breachReasonFactory.buildReachReasonView(question: self.question,  option: self.optioBreach2[Utils.index ], frameView: rectBRView)
+            self.breachReason = self.breachReasonFactory.buildReachReasonView(question: self.question,  option: self.optionBreach, frameView: rectBRView)
             self.addSubview(self.breachReason!.breachReasonView)
             self.breachReason?.delegate = self
         }

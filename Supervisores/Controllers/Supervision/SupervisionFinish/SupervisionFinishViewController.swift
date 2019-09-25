@@ -50,7 +50,9 @@ class SupervisionFinishViewController: UIViewController, MFMailComposeViewContro
                 [unowned self] supInfo in
                 DispatchQueue.main.async {
                     if let imgStr = supInfo?.image {
+                        if imgStr != ""{
                         self.imgResultSupervision.load(url: URL(string: imgStr)!)
+                        }
                         self.lblTitleResult.text = supInfo?.description
                         self.lblLegend.text = supInfo?.legend
                         self.createStars(numberStars: self.stars)

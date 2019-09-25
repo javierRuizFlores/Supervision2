@@ -112,7 +112,7 @@ extension QuestionViewModel {
                     if question.hasBreach ?? false {
                         Storage.shared.updateSuboption(suboption: suboption, optionId: option.id, isEditing: isEditing)
                     } else {
-                        suboption.answer = ""
+                       // suboption.answer = ""
                         Storage.shared.updateSuboption(suboption: suboption, optionId: option.id, isEditing: isEditing)
                     }
                 }

@@ -81,7 +81,7 @@ class URLSessionsNetworking : NetworkingProtocol {
 
                     print("Error", parsingError.localizedDescription)
                 }
-            //print("RESPONSE Code ==>> \(httpResponse.statusCode)")
+            print("RESPONSE Code ==>> \(httpResponse.statusCode)")
             if !(200 ... 299).contains(httpResponse.statusCode) {
                
                 completion(nil, NetworkError.httpResponse)

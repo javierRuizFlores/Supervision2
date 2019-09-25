@@ -84,7 +84,14 @@ class IndicatorModel: ModelInput {
             return
         }
         if idLevel == 5{
-            idLocatio = 1
+            if idLocatio > 32{
+                idLocatio = 1
+            }
+        }
+        if idLevel == 4{
+            if idLocatio > 32{
+                idLocatio = 1
+            }
         }
         NetworkingServices.shared.getGroupData(idLevel: idLevel, idLocation:idLocatio){  [unowned self] in
             guard let dataResponse = $0,

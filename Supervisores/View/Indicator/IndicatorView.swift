@@ -126,6 +126,7 @@ extension IndicatorView: viewInput{
     
     func displey(_ items: [States]) {
         dataSource.states = items
+        dataSource.index = 0
         dataSource.itemsContacto = []
         self.collectionViewSecond.reloadData()
         self.searchBar.text = ""

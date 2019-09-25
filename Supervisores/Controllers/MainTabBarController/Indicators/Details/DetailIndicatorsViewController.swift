@@ -63,7 +63,7 @@ extension DetailIndicatorsViewController: DetailModelOutput{
     func modelDidFail() {
     self.lottieView?.animationFinishError()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.1, execute: {
-           // self.dismiss(animated: true, completion: nil)
+           self.dismiss(animated: true, completion: nil)
         })
         
     }

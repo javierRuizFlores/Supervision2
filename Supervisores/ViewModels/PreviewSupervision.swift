@@ -23,6 +23,7 @@ class PreviewSupervisionViewModel {
             for question in questions {
                 let comment = question.commentDescripton ?? ""
                 var weighing = 1
+                if question.topic != "Productos No Autorizados" {
                 if let hasbreach = question.hasBreach {
                     if hasbreach {
                         weighing = -1
@@ -70,6 +71,7 @@ class PreviewSupervisionViewModel {
                         let answerResume = AnswerResume(questionId: question.id, comment: comment, weighing: weighing, optionId: option.id, optionDescription: option.option, questionDescription: question.question, module: module.name, topic: question.topic, breaches: arrayBreaches, subAnswers: arraySubanswer, traces: arrayTraces, photos: photosResume,nivelIncumplimiento: question.hasBreach!)
                         arrayAnswerResume.append(answerResume)
                        photosResume = [PhotoResume] ()
+                    }
                     }
                 }
                 

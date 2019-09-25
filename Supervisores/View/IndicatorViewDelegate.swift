@@ -243,7 +243,7 @@ extension IndicatorView: UISearchBarDelegate{
             }
         }else{
             if dataSource.itemsContacto.count > 0{
-               dataSource.itemSearchContacto =  dataSource.itemsContacto.filter({$0.Nombre.lowercased().prefix(searchText.count) == searchText.lowercased()})
+                dataSource.itemSearchContacto =  dataSource.itemsContacto.filter({$0.Nombre.contains(searchText.uppercased())})
             }else{
               dataSource.itemsSearch =  dataSource.items.filter({$0.Nombre!.lowercased().prefix(searchText.count) == searchText.lowercased()})
             }

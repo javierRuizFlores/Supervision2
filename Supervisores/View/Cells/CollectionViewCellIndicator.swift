@@ -72,7 +72,9 @@ class CollectionViewCellIndicator: UICollectionViewCell {
         
         lblLaboratorio.textColor = l.2
         imgLaboratorio.alpha = l.1
+        if item.Indicador16?.Valor != nil{
          self.lblIndicatorCrease.text = "\(Int((item.Indicador16?.Valor!)!))%"
+        }
         if item.Indicador16?.Umbral != nil {
             self.lblIndicatorCrease.isHidden = false
         self.lblIndicatorCrease.backgroundColor = UIColor.init(hexString: (item.Indicador16?.Umbral!)!, alpha: 1.0)

@@ -90,7 +90,7 @@ class SupervisionResumeViewController: UIViewController {
         lblUnitAddress.text = address
         lblSupervisionDate.text = dateSupervision
         lblSupervisorKey.text = "\(supKey)"
-        lblAccountSupervisor.text = "\(domainAccount) - \(nameSup!)"
+        lblAccountSupervisor.text = "\(domainAccount.uppercased()) - \(nameSup!)"
         
         if typeUnit == "Sucursal" {
 //            stackDomainAccount.isHidden = true

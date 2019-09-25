@@ -61,7 +61,9 @@ class CollectionViewCellIndicatorTotal: UICollectionViewCell, UITableViewDataSou
             self.size.append(String((item[0].Sucursales!)))
             self.size.append(String((item[0].Franquicias!)))
             self.size.append(String((item[0].Laboratorios!)))
+            if item[0].Indicador16?.Valor != nil{
             self.lblIndicatorCrease.text = "\(Int((item[0].Indicador16?.Valor!)!))%"
+            }
             if item[0].Indicador16!.Umbral != nil{
                 self.lblIndicatorCrease.backgroundColor = UIColor.init(hexString: item[0].Indicador16!.Umbral!, alpha: 1.0)}else{
                 self.lblIndicatorCrease.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)

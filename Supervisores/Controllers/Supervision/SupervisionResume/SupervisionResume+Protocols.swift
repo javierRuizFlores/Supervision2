@@ -41,7 +41,7 @@ extension SupervisionResumeViewController: GetSupervisionResumeVMProtocol, QRRea
                 if let supName = LoginViewModel.shared.loginInfo?.user?.name , let domain = LoginViewModel.shared.loginInfo?.user?.domainAccount{
                     
                     self.lblSupervisorKey.text = "\(supId)"
-                    self.lblAccountSupervisor.text =  "\(domain) - \(supName)"
+                    self.lblAccountSupervisor.text =  "\(domain.uppercased()) - \(supName)"
                    
                 }
             }

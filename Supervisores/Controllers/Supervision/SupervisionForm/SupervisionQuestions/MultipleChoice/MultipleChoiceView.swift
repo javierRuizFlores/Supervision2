@@ -79,12 +79,11 @@ class MultipleChoiceView: UIView {
                     }
                 }
                 self.options.append(option)
-               
                 if let breaches = option[KeysOptionQuestion.breaches.rawValue] as? [[String: Any]]{
                     if breaches.count > 0 {
-                        self.optioBreach2.append(option)
+                          self.optionBreach = option
                     }else{
-                        self.optioBreach2.append(option)
+                        //self.optioBreach2.append(option)
                     }
                     
                     

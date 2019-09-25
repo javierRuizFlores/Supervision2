@@ -13,7 +13,7 @@ class VisitDataSoruce: NSObject {
     var itemsSelected:[(Bool,Int)] = []
     var photosView: PhotosView!
     func setVC(vc: UIViewController){
-        var photosView: PhotosView = PhotosView(frame: CGRect.init(x: 0, y: 0, width: 350, height: 90), questionId: 1,type: .visita,vc: vc)
+        photosView = PhotosView(frame: CGRect.init(x: 0, y: 0, width: 350, height: 90), questionId: 1,type: .visita,vc: vc)
     }
     func setSelected(){
         for i in 0 ..< items.count{

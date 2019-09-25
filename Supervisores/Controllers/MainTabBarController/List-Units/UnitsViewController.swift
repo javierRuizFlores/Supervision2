@@ -88,6 +88,7 @@ class UnitsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         //MyUnitsViewModel.shared.setListener(listener: nil)
         self.localizacion!.stopUpdateLocation()
+        self.searchBarVC?.searchBar.text = ""
     }
     
     @IBAction func changeOrderUnits(_ sender: Any) {
