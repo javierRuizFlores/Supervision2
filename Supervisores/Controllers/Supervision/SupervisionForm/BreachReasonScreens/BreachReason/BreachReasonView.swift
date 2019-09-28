@@ -238,6 +238,7 @@ class BreachReasonView: UIView {
     @IBAction func saveNClose(_ sender: Any) {
       
         var breachComplete = true
+        
         if self.hasSuboptions {
             for textField in self.scrollContainer.subviews {
                 if let txtField = textField as? UITextField {
@@ -272,8 +273,8 @@ class BreachReasonView: UIView {
                     breachComplete = false
                 }
             }
-            
-            if self.generalDate {
+            if !self.hasBreachLevel{
+            if self.solutionDate {
                 if self.dateSolutionCommon == nil {
                     //                self.viewDateBreach.backgroundColor = Color.missing.rawValue
                     //                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -282,6 +283,7 @@ class BreachReasonView: UIView {
                     breachComplete = false
                 }
             }
+        }
         }
         //        if breachComplete {
         if let idOption = self.option[KeysOptionQuestion.id.rawValue] as? Int {

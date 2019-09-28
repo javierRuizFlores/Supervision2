@@ -43,11 +43,19 @@ class PreviewSupervisionViewModel {
                             for breach in breaches {
                                 print("jd**:\(breach.id), \(breach.breach)")
                                 if let responseBreach = Storage.shared.getResponseBreach(idBreach: Int(breach.id)) {
-                                     print("jd**:\(responseBreach.id), \(responseBreach.selected)")
+                                     print("jd**:\(responseBreach.id), \(responseBreach.selected)"  ,"\(responseBreach.dateSolution)")
+                                    
                                     if responseBreach.selected {
                                         let breachTitle = breach.breach ?? ""
-                                        let breach = BreachAnswerResume(description: breachTitle, breachLevel: responseBreach.levelBreach, dateCommitment: question.dateSolutionCommon)
-                                        arrayBreaches.append(breach)
+                                        if question.dateSolutionCommon != nil{
+                                            let breach = BreachAnswerResume(description: breachTitle, breachLevel: responseBreach.levelBreach, dateCommitment: question.dateSolutionCommon)
+                                            arrayBreaches.append(breach)
+                                        }else{
+                                            let breach = BreachAnswerResume(description: breachTitle, breachLevel: responseBreach.levelBreach, dateCommitment: responseBreach.dateSolution as? Date)
+                                            arrayBreaches.append(breach)
+                                        }
+                                        
+                                        
                                     }
                                 }
                             }

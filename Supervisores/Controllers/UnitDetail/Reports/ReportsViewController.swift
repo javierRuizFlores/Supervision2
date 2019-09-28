@@ -46,7 +46,7 @@ class ReportsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        model.load()
+        model.load(unitId: unit[KeysUnit.idUnit.rawValue] as! Int)
     lottieView?.animationLoading()
     }
     func openPopUp(){

@@ -10,10 +10,12 @@ import UIKit
 import Lottie
 class BreachReasonButton: UIView {
     @IBOutlet weak var animationView: UIView!
+    @IBOutlet weak var lblTitle: UILabel!
     var lottieView = LOTAnimationView(name: "addJson")
     var updateContrains = false
     var lottieCreated = false
     let goToBreach: ()->Void
+    
     
     init(frame: CGRect, goToBreach: @escaping ()->Void) {
         self.goToBreach = goToBreach

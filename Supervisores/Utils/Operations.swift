@@ -92,6 +92,10 @@ struct Operation {
         }
         return umbral
     }
+    static func getUrlIndicators() -> String{
+       
+        return User.currentProfile == Profiles.franchisee ? "cnt": "sup"
+    }
     static func getIndicatorsString(type: Indicators) -> String{
         switch type {
         case .negocioTotal:
@@ -111,8 +115,6 @@ struct Operation {
           
         case .unit:
             return "UNIDADES"
-        
-            
         case .gerencia:
             return "GERENCIA"
         case .contacto:
@@ -184,7 +186,7 @@ struct Operation {
             return ""
         }
     }
-    static func getReports(item: ResumeSupervision,modules:[Module]) -> ReportItem{
+    static func getReports(item: [ReportsItem],modules:[Module]) -> ReportItem{
         var report: ReportItem!
          var motivosA: [MotivosIncumplimiento] = []
         var preguntas: [Preguntas] = []
@@ -194,36 +196,41 @@ struct Operation {
         var nombre = ""
         var dateSolution = ""
         var dateCompromiso = ""
+        var fechaI =  ""
+        var fechaF = ""
         var sizeModulo = 150
+        for itm in item{
         for i in 0 ..< modules.count {
-            let auxPreguntas = item.answers.filter({$0.moduleId == (i + 1) && $0.breaches.count > 0 })
+            let auxPreguntas = itm.ReporteRespuesta.filter({$0.ModuloId == (i + 1) && ($0.ReporteIncumplimientoRespuesta.count) > 0 })
             preguntas = []
         for pregunta in auxPreguntas{
             motivosA = []
             
-            for motivo in pregunta.breaches{
+            for (i,motivo) in pregunta.ReporteIncumplimientoRespuesta.enumerated(){
                 //dateSolution = Utils.stringFromDate(date: motivo.dateRealSolution!)
-                dateCompromiso = Utils.stringFromDate(date: motivo.dateCommitment!)
+                dateCompromiso = Utils.stringFromDate(date: Utils.dateFromService(stringDate: motivo.FechaCompromiso!))
                 if dateCompromiso == "31-12-1969"{
                     dateCompromiso = ""
                 }
-                motivosA.append(MotivosIncumplimiento.init(id: motivo.breachId, descripcion: motivo.description, nivelIncumplimiento: motivo.breachLevel, fechaSolucion: dateSolution, fechaCompromiso: dateCompromiso, status: motivo.status,idRespuesta:  motivo.answerId))
+                motivosA.append(MotivosIncumplimiento.init(id: motivo.IncumplimientoId!, descripcion: motivo.Descripcion, nivelIncumplimiento: motivo.NivelIncumplimiento, fechaSolucion: dateSolution, fechaCompromiso: dateCompromiso, status: motivo.Estatus,idRespuesta: pregunta.RespuestaId))
                 //print("id: \(motivo.breachId)date: \(dateCompromiso)")
             }
             let size =  150 + (60 * motivosA.count)
             if size > sizeModulo {
                 sizeModulo =  size
             }
-            preguntas.append(Preguntas.init(supervisionId: pregunta.supervisionId, id: pregunta.questionId, name: pregunta.questionDescription, tipo: pregunta.optionId, motivos: motivosA, sizeCell: size,tema: pregunta.topic,nivelIncumplimiento: pregunta.nivelIncumplimiento))
-           nombre = pregunta.module
-            idModule = pregunta.moduleId
-            
+            preguntas.append(Preguntas.init(supervisionId: itm.SupervisionId!, id: pregunta.RespuestaId, name: pregunta.Pregunta, tipo: pregunta.OpcionId, motivos: motivosA, sizeCell: size,tema: pregunta.Tema,nivelIncumplimiento: true))
+            nombre = modules[(pregunta.ModuloId!) - 1].name
+            idModule = (pregunta.ModuloId)!
+            fechaI = Utils.stringFromDate(date: Utils.dateFromService(stringDate: itm.FechaInicio!))
+            fechaF = Utils.stringFromDate(date: Utils.dateFromService(stringDate: itm.FechaFin!))
             }
             if preguntas.count > 0{
                 
-                    modulos.append(Modulos.init(nombre:nombre ,  id: idModule, fechaInicio:Utils.stringFromDate(date: item.dateInit!), fechaFin: Utils.stringFromDate(date:item.dateEnd!), preguntas: preguntas, sizeCell: sizeModulo))
+                    modulos.append(Modulos.init(nombre:nombre ,  id: idModule, fechaInicio:fechaI, fechaFin:fechaF , preguntas: preguntas, sizeCell: sizeModulo))
             }
             sizeModulo = 150
+        }
         }
         report = ReportItem.init(modulo: modulos)
         return report

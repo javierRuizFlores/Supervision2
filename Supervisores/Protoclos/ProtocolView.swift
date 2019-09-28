@@ -97,7 +97,7 @@ protocol ReportsViewInput: class {
     var itemAction: (() -> Void)? {get set}
 }
 protocol ReportsModelInput: class {
-    func load()
+    func load(unitId: Int)
     func sendLoad(param:[[String:Int]])
 }
 protocol ReportModelOutput: class {

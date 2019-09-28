@@ -9,7 +9,9 @@
 import Foundation
 class ReportsModel: ReportsModelInput{
     var out: ReportModelOutput!
-    func load() {
+    var unitid: Int!
+    func load(unitId: Int) {
+        self.unitid = unitId
         NetworkingServices.shared.getModules(){
             [unowned self] in
             if let error = $1 {
@@ -34,7 +36,7 @@ class ReportsModel: ReportsModelInput{
                 let decoder = JSONDecoder()
                 let modules = try decoder.decode([Module].self, from: data)
                 if PastSupervisionViewModel.shared.lastSupervisions.count > 0{
-                    self.getReports(modules: modules)
+                    self.getReports(modules: modules,unitId: self.unitid)
                 }
                 else{
                    self.out.modelDidLoadFail()
@@ -45,9 +47,9 @@ class ReportsModel: ReportsModelInput{
             }
         }
     }
-    func getReports(modules: [Module]){
+    func getReports(modules: [Module], unitId: Int){
         let idUnit = PastSupervisionViewModel.shared.lastSupervisions[0]
-        NetworkingServices.shared.getSupervision(supervisionId: idUnit.supervisionId){
+        NetworkingServices.shared.getReports(idUnit: unitId){
         [unowned self] in
         if let error = $1 {
             self.out.modelDidLoadFail()
@@ -69,7 +71,7 @@ class ReportsModel: ReportsModelInput{
         }
         do {
             let decoder = JSONDecoder()
-            let supervisionResume = try decoder.decode(ResumeSupervision.self, from: data)
+            let supervisionResume = try decoder.decode([ReportsItem].self, from: data)
             self.out.modelDidLoad(Operation.getReports(item: supervisionResume, modules: modules))
         }
         catch {

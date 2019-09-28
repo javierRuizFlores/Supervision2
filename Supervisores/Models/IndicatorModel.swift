@@ -125,7 +125,7 @@ class IndicatorModel: ModelInput {
                 }
                // self.itemsResum = self.SetUmbrales(self.itemsResum)
                 
-                self.out.modelDidLoad(self.itemsResum)
+                self.out.modelDidLoad(self.quickSortValue(array:self.itemsResum))
                 
             }
             catch let error{
@@ -216,7 +216,7 @@ NetworkingServices.shared.getGroupData(idLevel: 8, idLocation:0){  [unowned self
        
     }
     func getItemsCiudad(items: [IndicatorResumItem]) -> [IndicatorResumItem]{
-        var newitems: [IndicatorResumItem] = [itemsResum[6],itemsResum[7],itemsResum[8]]
+        var newitems: [IndicatorResumItem] = [itemsResum[0],itemsResum[4],itemsResum[8]]
         newitems[0].Total! += (itemsResum[0].Total! + itemsResum[3].Total!)
         newitems[1].Total! += (itemsResum[1].Total! + itemsResum[4].Total!)
         newitems[2].Total! += (itemsResum[2].Total! + itemsResum[5].Total!)

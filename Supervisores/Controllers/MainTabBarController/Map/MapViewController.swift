@@ -69,6 +69,7 @@ class MapViewController: UIViewController, showIndcatorUnitDelegate,PopUpDelegat
     //let controller = QRViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
+         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         mapViewSelected = mapFactory.buildMap(mapType : .nativeMap)
         mapViewSelected?.delegate = self
         mapView.insertSubview(mapViewSelected!.componentView, at: 0)
@@ -93,7 +94,7 @@ class MapViewController: UIViewController, showIndcatorUnitDelegate,PopUpDelegat
 
         self.lblLoading.isHidden = true
         self.showBrickInfo(block: nil)
-        
+        self.view.addGestureRecognizer(tap)
         for subview in self.stackButtonsDistance.subviews {
             if let btn = subview as? UIButton {
                 btn.layer.cornerRadius = 5
@@ -106,7 +107,11 @@ class MapViewController: UIViewController, showIndcatorUnitDelegate,PopUpDelegat
             self.btnShowHideBricks.isHidden = true
         }
     }
-    
+    @objc func dismissKeyboard(){
+        self.infoUnit?.removeFromSuperview()
+        actClose()
+       
+    }
     override func viewDidAppear(_ animated: Bool) {
         UnitsMapViewModel.shared.setListener(listener: self)
         self.infoUnit = InfoUnitView(parentView: self.mapView)

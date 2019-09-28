@@ -12,7 +12,7 @@ class EncuestasViewController: UIViewController {
     @IBOutlet weak var navBar: UIView!
     
     var lottieView : LottieViewController?
-    
+    var delegate: MainTabBarProtocol!
     lazy var contentView: EncuentasViewInput = {return view as! EncuentasViewInput}()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,12 @@ class EncuestasViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         lottieView?.animationLoading()
-        
+        UserDefaults.standard.set(0, forKey: "Encuesta")
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
        EncuestasModel.shared.getScore()
+        
     }
     func openQrReader(_ item: EncuestasItem){
         let controller = QRViewController()
@@ -51,7 +52,7 @@ extension EncuestasViewController: EncuestasModelOutput{
     func modelDidLoad(_ items: ([EncuestasItem],[String:Int])) {
         lottieView?.animationFinishCorrect()
         contentView.display(items)
-    
+        delegate.clearBadge()
     }
     
     func modelDidLoadFail() {

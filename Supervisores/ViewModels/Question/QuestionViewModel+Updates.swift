@@ -72,13 +72,16 @@ extension QuestionViewModel {
         self.questionDictionary[idModule] = listQuestions
     }
     func optionSelected(idQuestion: Int, idOption: Int, selected: Bool) {
+        print("QID: \(idQuestion), idOption \(idOption), selected: \(selected)")
         guard let idModule = CurrentSupervision.shared.getCurrentModule()[KeysModule.id.rawValue] as? Int else { return }
         guard let questionD = self.questionDictionary[idModule] else { return }
+        
         let listQuestions : [Question] = questionD.map({
             if $0.id == idQuestion{
                 $0.options = $0.options.map({option in
                     if option.id == idOption{
                         option.isSelected = selected
+                    
                     }
                     return option
                 })
@@ -91,14 +94,17 @@ extension QuestionViewModel {
         print("GUARDANDO PREGUNTA ===>> \(idQuestion)")
         guard let idModule = CurrentSupervision.shared.getCurrentModule()[KeysModule.id.rawValue] as? Int else { return }
         guard let questionD = self.questionDictionary[idModule] else { return }
+        
         let qFilter = questionD.filter({$0.id == idQuestion})
         if qFilter.count <= 0 {return}
         let question = qFilter[0]
         Storage.shared.updateResponseQuestion(question: question, isEditing: isEditing)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             for option in question.options {
-                print("GUARDANDO OPCION PREGUNTA ===>> \(option.option) \(isEditing)")
+                print("GUARDANDO OPCION PREGUNTA:\(question.id) ===>> \(option.option), optionid: \(option.id) ")
+                
                 Storage.shared.updateOptionResponse( option: option, idQuestion: idQuestion, isEditing: isEditing)
+                
                 for breach in option.breaches {
                     if question.hasBreach ?? false {
                         Storage.shared.updateResponseBreach(breach: breach, optionId: option.id, isEditing: isEditing)
@@ -116,6 +122,7 @@ extension QuestionViewModel {
                         Storage.shared.updateSuboption(suboption: suboption, optionId: option.id, isEditing: isEditing)
                     }
                 }
+                
             }
             if question.hasBreach ?? false {
                 for (i, photo) in (question.photos).enumerated() {

@@ -69,6 +69,7 @@ extension SupervisionResumeViewController: GetSupervisionResumeVMProtocol, QRRea
     }
     
     func loadAnswersSupervision(answersSupervision: [[String : Any]]) {
+        print("===: \(answersSupervision)")
         self.totalAnswer = answersSupervision
         self.totalModules = answersSupervision.map({
             $0[KeysAnswerResume.moduleId.rawValue] as? Int  ?? -1

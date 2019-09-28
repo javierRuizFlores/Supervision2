@@ -16,13 +16,16 @@ class EncuestasModel{
     var out: EncuestasModelOutput!
     var items: [EncuestasItem] = []{
         didSet{
-          
+          setNumberIcon(items: self.items)
         }
     }
     var counts: [Int] = []
     var newEncuestas = 0
     var Score: [[String: Int]] = []
     func load(){
+        if items.count > 0{
+            
+        }
         NetworkingServices.shared.getEncuestas(){
             [unowned self] in
             
@@ -42,7 +45,7 @@ class EncuestasModel{
                 let items  = try JSONDecoder().decode([EncuestasItem].self, from: dataResponse)
                 
                 self.items = self.getViableEncuestas(items: items.filter({$0.EstatusEncuesta?.Estatus == "Publicada"}))
-                //let aux = self.setNumberEncuestas(items: self.items)
+                
             }
             catch let error{
                 
@@ -53,31 +56,31 @@ class EncuestasModel{
     func setNumberEncuestas(items: [EncuestasItem]) -> ([EncuestasItem],[String:Int]){
         return (items,[:])
     }
-    func setRestEncuestas(items: [EncuestasItem]) -> ([EncuestasItem],[String:Int]){
+    func setNumberIcon(items: [EncuestasItem]){
         let encuestas =  Storage.shared.getEncuestas(idUnit: 0)
         var uptadeItems: [EncuestasItem] = []
-        var counts: [String:Int] = [:]
         for item in items{
             var existing = false
-            var count = 0
             for encuesta in encuestas{
                 if item.EncuestaId == encuesta.idEncuesta{
-                    count = encuesta.count
                     existing = true
                 }
             }
-            counts["\(item.EncuestaId!)"] = count
-            
-            if !existing || count == 0{
+           
+            if !existing{
                 uptadeItems.append(item)
             }
         }
-        self.newEncuestas = uptadeItems.count
+        
+            let num = UserDefaults.standard.integer(forKey: "Encuesta") ?? 0
+        self.newEncuestas = uptadeItems.count + num
+        UserDefaults.standard.set(self.newEncuestas, forKey: "Encuesta")
         for item in uptadeItems{
             Storage.shared.updateEncuestas(item: item, count: 0)
         }
-        return (items,counts)
+        
     }
+    
     func getViableEncuestas(items: [EncuestasItem]) -> [EncuestasItem]{
         
         

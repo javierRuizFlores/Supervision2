@@ -58,8 +58,8 @@ class MyProfileViewController: UIViewController {
         MyUnitsViewModel.shared.arrayUnitsOrderFilter = []
         SupervisionModulesViewModel.shared.modulesList = []
         PauseReasonsViewModel.shared.arrayReasons = []
-        PauseReasonsViewModel.shared.reasonsList = []
-        Storage.shared.deleteCurrentSupervision(isEditing: false)
+        //PauseReasonsViewModel.shared.reasonsList = []
+        //Storage.shared.deleteCurrentSupervision(isEditing: false)
         
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }

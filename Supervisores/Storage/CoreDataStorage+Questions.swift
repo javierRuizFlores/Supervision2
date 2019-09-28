@@ -135,6 +135,7 @@ extension CoreDataStorage {
             let manageContext = appDelegate.persistentContainer.viewContext
             let module = self.getModule(idModule: idModule)
             for question in listQuestions {
+                
                 let questionS = QuestionStored(context: manageContext)
                 questionS.active = question.active
                 questionS.id = Int32(question.id)
@@ -155,6 +156,7 @@ extension CoreDataStorage {
                 questionS.module = module
                 questionS.isVisible = question.isVisibleF 
                 self.saveOptions(listOptions: question.options, question: questionS, isEditing: isEditing)
+                
             }
             do {
                 try manageContext.save()

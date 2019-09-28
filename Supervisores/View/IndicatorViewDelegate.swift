@@ -42,6 +42,7 @@ extension IndicatorView: UICollectionViewDelegate, UICollectionViewDelegateFlowL
         else {
             self.itemAction?(dataSource.states[indexPath.item].id, typeIndicators)
             self.dataSource.index = indexPath.item
+            dataSource.search = false
             self.collectionViewSecond.reloadData()
         }
         

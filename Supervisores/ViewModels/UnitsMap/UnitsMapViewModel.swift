@@ -84,7 +84,8 @@ class UnitsMapViewModel {
                 }
                 do {
                     let decoder = JSONDecoder()
-                    self.arrayAllUnits = try decoder.decode([UnitLite].self, from: data)
+                    let aux = try decoder.decode([UnitLite].self, from: data)
+                    self.arrayAllUnits = aux.filter({$0.id != 2})
                     if let filter = self.searchFilter {
                         if self.searching != "" || self.locationSearch != nil {
                             let _ = self.searchUnits(searchBy: self.searching, searchFilter: filter, location: self.locationSearch, ratio: self.currentRatio)

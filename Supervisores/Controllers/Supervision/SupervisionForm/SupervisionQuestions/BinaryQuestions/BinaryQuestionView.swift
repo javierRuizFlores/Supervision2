@@ -45,13 +45,16 @@ class BinaryQuestionView: UIView {
     var nibView: UIView!
     var questionLoaded = false
     var vc: UIViewController!
+    var titleB = ""
     init(selected: Bool, question:[String: Any], frame: CGRect, isEditingSupervision: Bool) {
         self.isEditingSupervision = isEditingSupervision
         var opt : [[String : Any]] = []
+        print("---->>>>><<<<<\(question)")
         if var options = question[KeysQuestion.options.rawValue] as? [[String: Any]] {
+            print("\(options)")
             if options.count >= 2 {
                 if  let weighing1 = options[0][KeysOptionQuestion.weighing.rawValue] as? Int {
-                    if weighing1 > 0 {
+                    if weighing1 >= 0 {
                         self.optionBreach = options[1]
                         self.optionOk = options[0]
                         options[0][KeysOptionQuestion.selected.rawValue] = true
@@ -81,7 +84,10 @@ class BinaryQuestionView: UIView {
         self.nibView = Bundle.main.loadNibNamed("BinaryQuestionView", owner: self, options: nil)![0] as! BinaryQuestionView
         self.nibView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
         self.addSubview(self.nibView)
-        self.lblTxtQuestion.text = self.optionOk?[KeysOptionQuestion.option.rawValue] as? String ?? "Cumple"
+       
+             self.lblTxtQuestion.text = self.optionOk?[KeysOptionQuestion.option.rawValue] as? String ?? "Cumple"
+        
+       
         self.checkTitles()
         self.checkComment()
         self.layoutIfNeeded()
@@ -137,6 +143,7 @@ class BinaryQuestionView: UIView {
             self.openBreachReasons()
         }
         self.viewBreachReason.addSubview(self.breachReasonButton!)
+        self.breachReasonButton?.lblTitle.text = self.titleB
         if let breachComplete = self.question[KeysQuestion.breachEnded.rawValue] as? Bool {
             if breachComplete {
                 self.formComplete(complete: breachComplete, moveView : false)
@@ -172,9 +179,7 @@ class BinaryQuestionView: UIView {
                 self.questionChanged = .changeToBreach
             } else {
                 self.question[KeysQuestion.breachEnded.rawValue] = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self.breachReasonButton?.setBreachReasonfinish(finished: true)
-                    self.delegate?.updateBreach()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {                 self.breachReasonButton?.setBreachReasonfinish(finished: true)
                 }
                 self.breachReasonButton = BreachReasonButton(frame: self.viewBreachReason.bounds) {
                     [unowned self] in

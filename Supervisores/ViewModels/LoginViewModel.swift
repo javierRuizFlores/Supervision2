@@ -150,7 +150,7 @@ class LoginViewModel {
                     let items = try JSONDecoder().decode([PrivilegeProfileItem].self, from: dataResponse)
                    
                     MessageModel.shared.load()
-                    
+                    EncuestasModel.shared.load()
                    Privileges.shared.privilegesProfile = Privileges.shared.getPrivilagesFromProfile(items: items)
                     print("LLEGO AL LOGIN")
                     self.listener?.loginOk()

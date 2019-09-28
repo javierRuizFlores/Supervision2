@@ -214,18 +214,17 @@ class QuestionViewModel {
     func setListener(listener: QuestionVMProtocol?) {
         self.listener = listener
     }
-    func getQuestion(moduleId : Int, ovirrideCurrent: Bool, isEditing: Bool, type: String) -> Bool {
-        if !ovirrideCurrent {
-            if let questionDictionary = self.questionDictionary[moduleId] {
-                self.questionList = questionDictionary
-                return true
-            }
-            let questionStored = Storage.shared.getQuestions(idModule: moduleId)
-            if questionStored.count > 0 {
-                self.questionList = questionStored
-                self.questionDictionary[moduleId] = questionStored
-                return true
-            }
+    func getQuestion(moduleId : Int, ovirrideCurrent: Bool, isEditing: Bool, type: String) -> Bool {if !ovirrideCurrent {
+        if let questionDictionary = self.questionDictionary[moduleId] {
+            self.questionList = questionDictionary
+            return true
+        }
+        let questionStored = Storage.shared.getQuestions(idModule: moduleId)
+        if questionStored.count > 0 {
+            self.questionList = questionStored
+            self.questionDictionary[moduleId] = questionStored
+            return true
+        }
         }
         NetworkingServices.shared.getQuestions(idModule:moduleId) {
             [unowned self] in
@@ -261,7 +260,7 @@ class QuestionViewModel {
                     self.questionDictionary[moduleId] = questions
                 }
                 self.questionList = questions
-                Storage.shared.saveQuestions(listQuestions: self.questionList, idModule: moduleId, isEditing: isEditing)
+                Storage.shared.saveQuestions(listQuestions: questions, idModule: moduleId, isEditing: isEditing)
                 self.questionList.removeAll()
                 
                 self.listener?.finishLoadQuestion()
@@ -272,6 +271,7 @@ class QuestionViewModel {
         }
         return false
     }
+    
     
     func sendMailSuboption(arraySuboptions : [[String: Any]], optionId: Int) {
         guard let unitId = CurrentSupervision.shared.getCurrentUnit()[KeysQr.unitId.rawValue] as? Int else {return}

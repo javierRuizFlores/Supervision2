@@ -149,12 +149,14 @@ extension DetailIndicatorModel{
     }
     func getEndPointUrl(typeIndicator: Indicators) -> String{
         var url = ""
+        let user = User.currentProfile
+        let aux: Bool = user == .directorStaff || user == .director
         switch typeIndicator {
         case .negocioTotal:
-            url = "nt"
+           url =  "nt"
             break
         case .direccion:
-            url = "d"
+            url =   "d"
             break
         case .estado:
             url = "e"
@@ -166,7 +168,7 @@ extension DetailIndicatorModel{
             url = "m"
             break
         case .unit:
-            url = "un"
+            url =  "un"
             break
         case .contacto:
             url = "cto"

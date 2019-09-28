@@ -25,10 +25,13 @@ extension EncuestasDataSource: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionViewOrigin == collectionView{
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EncuestasCell.reuseIdentifier, for: indexPath) as! EncuestasCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:
+            EncuestasCell.reuseIdentifier, for: indexPath) as! EncuestasCell
+            if items.count > 0 && indexPath.item < items.count{
              let c = itemCounts["\(items[indexPath.item].EncuestaId!)"] ?? 0
-            cell.display(items[indexPath.item],count: itemCounts["\(items[indexPath.item].EncuestaId!)"]!)
-        
+            
+            cell.display(items[indexPath.item],count: c)
+            }
         return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EncuestasCell.reuseIdentifier, for: indexPath) as! EncuestasCell

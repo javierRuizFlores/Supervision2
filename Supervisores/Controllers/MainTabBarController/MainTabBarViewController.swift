@@ -36,6 +36,7 @@ class MainTabBarViewController: UITabBarController,ProtocolMainTabBar,MainTabBar
     override func viewDidLoad() {
         super.viewDidLoad()
         messagesVC.delegate = self
+        encuestasVC.delegate = self
         units = UINavigationController.init(rootViewController: unitsVC)
         map = UINavigationController.init(rootViewController: mapVC)
         indicators = UINavigationController.init(rootViewController: indicatorsVC)
@@ -44,7 +45,6 @@ class MainTabBarViewController: UITabBarController,ProtocolMainTabBar,MainTabBar
          encuestas = UINavigationController.init(rootViewController: encuestasVC)
         unitsVC.delegate = self
         self.viewControllers = [units, map,indicators, encuestas, messages]
-        EncuestasModel.shared.load()
         itemUnits = UITabBarItem(title: "Unidades", image: UIImage(named: "unidades"), tag: 0)
         itemMap = UITabBarItem(title: "Mapa", image:  UIImage(named: "mapa"), tag: 1)
         itemIndicators = UITabBarItem(title: "Indicadores", image:  UIImage(named: "indicadores"), tag: 2)
@@ -99,11 +99,18 @@ class MainTabBarViewController: UITabBarController,ProtocolMainTabBar,MainTabBar
        
     }
     func clearBadge() {
-      
-            itemEncuestas?.badgeValue = "\(EncuestasModel.shared.newEncuestas)"
-    
-             itemMessages?.badgeValue = "\(MessageModel.shared.newMessages)"
-        
+      let numEncuesta = UserDefaults.standard.integer(forKey: "Encuesta") ?? 0
+        if numEncuesta > 0{
+            itemEncuestas?.badgeValue = "\(numEncuesta)"
+        }else{
+          itemEncuestas?.badgeValue =  nil
+        }
+        let numMessage = MessageModel.shared.newMessages
+        if numMessage > 0{
+             itemMessages?.badgeValue = "\(numMessage)"
+        }else{
+          itemMessages?.badgeValue = nil
+        }
     }
 }
 protocol ProtocolMainTabBar {

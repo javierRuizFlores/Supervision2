@@ -17,16 +17,16 @@ extension EncuestaView: UICollectionViewDelegateFlowLayout{
         }
         switch questionType {
         case .binary:
-            h += 100
+            h += 150
             break
         case .threeOptions:
-            h += 100
+            h += 170
             break
         case .multipleChoice:
             if items[indexPath.item].options.count > 2{
-               h += 100
+               h += 200
             }else{
-            h += 100
+            h += 150
             }
             break
         case .emoji:
@@ -43,7 +43,7 @@ extension EncuestaView: UICollectionViewDelegateFlowLayout{
     }
     func setDataCell(count: Int){
         for i in 0 ..< count{
-            self.photosView.append(PhotosView(frame: CGRect.init(x: 0, y: 0, width: 350, height: 90), questionId: 1,type: .visita,vc: self.vc))
+            self.photosView.append(PhotosView(frame: CGRect.init(x: 0, y: 0, width: 350, height: 90), questionId: 1,type: .visita,vc: EncuestaViewController()))
             if items[i].typeId == 3{
                 var ids: [Int] = []
                 for j in 0 ..< items[i].options.count{

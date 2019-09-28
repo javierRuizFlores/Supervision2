@@ -283,7 +283,7 @@ extension CoreDataStorage {
         }
     }
     func updateOptionResponse(option: OptionQuestion, idQuestion: Int, isEditing: Bool) {
-        print("GUARDANDO OPCION CON EDIT ==>>>> \(isEditing)")
+        
         DispatchQueue.main.async {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
             let manageContext = appDelegate.persistentContainer.viewContext
@@ -297,6 +297,7 @@ extension CoreDataStorage {
                     objectUpdate.isEditing = isEditing
                     do {
                         try manageContext.save()
+                        print("GUARDANDO OPCION \(option.id) ==>>>> \(option.isSelected)")
                     } catch {
                         print("ERROR 1 AL ACTUALIZAR!!!! \(error)")
                     }

@@ -28,7 +28,6 @@ class EscuestaCell: UICollectionViewCell {
     @IBOutlet weak var lblQ3: UILabel!
     @IBOutlet weak var lblQ4: UILabel!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var stackThree: UIStackView!
     @IBOutlet weak var lblPregunta: UILabel!
     @IBOutlet weak var lblPreguntaF: UILabel!
     @IBOutlet weak var viewEmojis: EmojisViewCell!
@@ -179,7 +178,7 @@ class EscuestaCell: UICollectionViewCell {
             self.viewFree.isHidden = true
             self.ViewStars.isHidden = true
             self.viewEmojis.isHidden = true
-            self.stackThree.isHidden = true
+            
             self.lblQ1.text = options[0].option
             self.lblQ2.text = options[1].option
             break
@@ -187,7 +186,7 @@ class EscuestaCell: UICollectionViewCell {
             self.viewFree.isHidden = true
             self.ViewStars.isHidden = true
             self.viewEmojis.isHidden = true
-            self.stackThree.isHidden = false
+            
             self.viewQ4.isHidden = true
             self.lblQ1.text = options[0].option
             self.lblQ2.text = options[1].option
@@ -198,7 +197,7 @@ class EscuestaCell: UICollectionViewCell {
             self.viewFree.isHidden = true
             self.ViewStars.isHidden = true
             self.viewEmojis.isHidden = true
-            self.stackThree.isHidden = true
+            
             self.setOptions(options: options.count)
             break
         case .emoji:
@@ -234,19 +233,20 @@ class EscuestaCell: UICollectionViewCell {
     func setOptions(options: Int){
         switch options {
         case 2:
-            self.stackThree.isHidden = true
+            
             self.lblQ1.text = self.options[0].option
             self.lblQ2.text = self.options[1].option
             break
         case 3:
-            self.stackThree.isHidden = false
-            self.viewQ4.isHidden = true
+            
+            self.lblQ4.text = ""
+            self.imgView4.image = UIImage(named: "")
             self.lblQ1.text = self.options[0].option
             self.lblQ2.text = self.options[1].option
             self.lblQ3.text = self.options[2].option
             break
         case 4:
-            self.stackThree.isHidden = false
+            
             self.viewQ4.isHidden = false
             self.lblQ1.text = self.options[0].option
             self.lblQ2.text = self.options[1].option

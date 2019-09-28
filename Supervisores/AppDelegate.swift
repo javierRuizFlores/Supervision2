@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         let badgeCount: Int = 0
         let application = UIApplication.shared
-        //application.applicationIconBadgeNumber = badgeCount
+       application.applicationIconBadgeNumber = badgeCount
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

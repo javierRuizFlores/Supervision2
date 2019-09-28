@@ -41,9 +41,19 @@ extension BinaryQuestionView: QuestionProtocol {
         if active {
             self.questionChanged = .noChange
             print("RESET CAMBIOS!!!! B \(question[KeysQuestion.topic.rawValue])")
-        } else  {
-            
-        }
+        } else   {
+            if self.isEditingSupervision {
+                switch self.questionChanged {
+                case .noChange:
+                    break
+                case .changeToOk:
+                    NotificationCenter.default.post(name: .removeBreach, object: nil)
+                case .changeToBreach:
+                    NotificationCenter.default.post(name: .addBreach, object: nil)
+                }
+            }
+            self.questionChanged = .noChange
+        }    
     }
         
     func openBreachReasons() {

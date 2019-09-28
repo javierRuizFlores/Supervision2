@@ -25,14 +25,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNt-7l-Hej">
                                 <rect key="frame" x="0.0" y="5" width="357" height="137"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmI-p2-dXS">
-                                        <rect key="frame" x="284" y="17" width="55" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmI-p2-dXS">
+                                        <rect key="frame" x="275" y="17" width="74" height="21"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="I4G-CR-CY3"/>
-                                            <constraint firstAttribute="width" constant="55" id="hpN-dy-css"/>
+                                            <constraint firstAttribute="width" constant="74" id="hpN-dy-css"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -132,7 +132,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="vmI-p2-dXS" firstAttribute="leading" secondItem="2Vf-9u-D09" secondAttribute="trailing" constant="17" id="4eR-WN-FuR"/>
+                                    <constraint firstItem="vmI-p2-dXS" firstAttribute="leading" secondItem="2Vf-9u-D09" secondAttribute="trailing" constant="8" id="4eR-WN-FuR"/>
                                     <constraint firstItem="2Vf-9u-D09" firstAttribute="top" secondItem="BNt-7l-Hej" secondAttribute="top" constant="8" id="4rO-hA-abo"/>
                                     <constraint firstItem="vmI-p2-dXS" firstAttribute="top" secondItem="BNt-7l-Hej" secondAttribute="top" constant="17" id="8Xq-zC-mZK"/>
                                     <constraint firstAttribute="height" constant="137" id="Hs5-tG-64n"/>
@@ -142,7 +142,7 @@
                                     <constraint firstItem="2Vf-9u-D09" firstAttribute="leading" secondItem="BNt-7l-Hej" secondAttribute="leading" constant="29" id="Zwq-lj-b2b"/>
                                     <constraint firstItem="i2t-cx-fX1" firstAttribute="leading" secondItem="BNt-7l-Hej" secondAttribute="leading" constant="8" id="e5T-Tw-A0h"/>
                                     <constraint firstAttribute="bottom" secondItem="i2t-cx-fX1" secondAttribute="bottom" constant="13" id="o90-LB-ZLn"/>
-                                    <constraint firstAttribute="trailing" secondItem="vmI-p2-dXS" secondAttribute="trailing" constant="18" id="rCE-ai-4wq"/>
+                                    <constraint firstAttribute="trailing" secondItem="vmI-p2-dXS" secondAttribute="trailing" constant="8" id="rCE-ai-4wq"/>
                                 </constraints>
                             </view>
                         </subviews>

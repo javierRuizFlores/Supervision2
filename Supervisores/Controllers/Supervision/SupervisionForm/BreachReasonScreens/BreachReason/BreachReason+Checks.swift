@@ -121,6 +121,12 @@ extension BreachReasonView {
             }
             
             }
+            if dateSolution{
+                self.viewDateBreach.isHidden = false
+            }else{
+                 self.viewDateBreach.isHidden = true
+            }
+            
         }
         self.scrollSize += self.viewDateBreach.bounds.height + 5.0
     }

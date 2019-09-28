@@ -79,7 +79,7 @@ class QrReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if type == typeOperationStore.supervision{
+        if type == typeOperationStore.supervision || isEditing{
         validatePauseSuper()
         }else{
             self.qrView.isHidden = false
@@ -232,7 +232,7 @@ class QrReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
                         self.finishWithError()
                         return
                     }
-                    if second > 10000000000 {
+                    if second > 100000000 {
                         self.finishWithError()
                         return
                     }

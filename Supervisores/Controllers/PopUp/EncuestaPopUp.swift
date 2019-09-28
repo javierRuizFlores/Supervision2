@@ -24,7 +24,7 @@ class EncuestaPopUp: UIViewController {
         let center: NotificationCenter = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         center.addObserver(self, selector: #selector(keyboardShow(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.0)
+         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         lblInstrucciones.text = "Instrucciones: \n \(instruccciones.Instrucciones!)"
         self.setupDatePicker()
          self.view.addGestureRecognizer(tap)
@@ -50,17 +50,10 @@ class EncuestaPopUp: UIViewController {
             imgM.image = UIImage(named: "checkBoxTrue")
         }
     }
-    func removeAnimate()
+    @IBAction func removeAnimate()
     {
-        UIView.animate(withDuration: 0.45, animations: {
-            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.view.alpha = 0.0;
-        }, completion:{(finished : Bool)  in
-            if (finished)
-            {
-                self.view.removeFromSuperview()
-            }
-        });
+        self.dismiss(animated: true, completion: nil)
+       /* */
     }
     func setupDatePicker() {
         // Specifies intput type
@@ -82,8 +75,7 @@ class EncuestaPopUp: UIViewController {
         toolBar.isUserInteractionEnabled = true
         
         // Adds the toolbar to the view
-        tfFecha.inputView = datePicker
-        tfFecha.inputAccessoryView = toolBar
+        
     }
     @objc func doneClick() {
         let dateFormatter = DateFormatter()
@@ -103,10 +95,19 @@ class EncuestaPopUp: UIViewController {
     }
     @IBAction func actInit(){
         delegate.loadEncuesta()
-    self.removeAnimate()
+        UIView.animate(withDuration: 0.45, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.view.alpha = 0.0;
+        }, completion:{(finished : Bool)  in
+            if (finished)
+            {
+                self.view.removeFromSuperview()
+            }
+        });
     }
 
 }
 protocol InstruccionesEncuestasProtocol {
     func loadEncuesta()
+    
 }

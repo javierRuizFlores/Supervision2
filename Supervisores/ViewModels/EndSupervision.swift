@@ -174,6 +174,7 @@ class EndSupervision {
         var questionsChecked: [Int] = []
 
         for answer in answerResume {
+            if answer.topic != "Productos No Autorizados" || answer.topic != "CEPIP" || answer.topic != "Clima Laboral" {
             if questionsChecked.contains(answer.questionId) { continue }
             questionsChecked.append(answer.questionId)
             let breaches = self.breachesToDicto(breaches: answer.breaches)
@@ -199,6 +200,7 @@ class EndSupervision {
                                                 KeysAnswerResume.weighing.rawValue: answer.weighing,
                                                 KeysAnswerResume.photos.rawValue: photosDictionary]
             answerSupervision.append(dictoAnswer)
+        }
         }
         return answerSupervision
     }
@@ -275,7 +277,7 @@ class EndSupervision {
                 //here dataResponse received from a network request
                 let jsonResponse = try JSONSerialization.jsonObject(with:
                     data, options: [])
-                //print("ResponseGetSupervision: \(jsonResponse)") //Response result
+                print("ResponseGetSupervision: \(jsonResponse)") //Response result
             } catch let parsingError {
                 
                 print("Error", parsingError)
@@ -284,6 +286,16 @@ class EndSupervision {
                 let decoder = JSONDecoder()
                 self.supervisionResume = try decoder.decode(ResumeSupervision.self, from: data)
                // print("ModelGetSupervicion: \(String(describing: self.supervisionResume))")
+                self.supervisionResume?.answers = (self.supervisionResume?.answers.filter({
+                    if $0.breaches.count > 0 {
+                        return true
+                    }else  if $0.comment != ""{
+                       
+                       return true
+                    }else{
+                        return false
+                    }
+                }))!
                 if let currentResume = self.supervisionResume {
                     let _ =  self.sendSupervisionData(supervisionId: currentResume.supervisionId)
                 }

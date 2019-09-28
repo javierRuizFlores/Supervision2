@@ -37,7 +37,7 @@ extension VisitView: visitViewInput{
     
     
     func display(items: [ReasonItem]) {
-        dataSource.items = items
+        dataSource.items = items.filter({$0.Activo!})
         dataSource.setSelected()
         collectionView.reloadData()
     }

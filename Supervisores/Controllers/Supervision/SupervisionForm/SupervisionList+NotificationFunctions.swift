@@ -87,7 +87,7 @@ extension SupervisionListFormViewController {
         //        if self.questions[self.currentQuestion].isInFullMode() {
         //            return
         //        }
-        self.questions[self.currentQuestion].showKeyBoard(sizeHeight: -1.0)
+            self.questions[self.currentQuestion].showKeyBoard(sizeHeight: -1.0)
     }
     @objc func keyboardDidHide(notification: NSNotification) {
         self.keyboardShowed = false

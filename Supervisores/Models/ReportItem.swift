@@ -69,3 +69,33 @@ struct MotivosIncumplimiento {
         self.idRespuesta = idRespuesta
     }
 }
+
+struct ReportsItem: Codable {
+    var SupervisionId: Int?
+    var FechaInicio: String?
+    var FechaFin: String?
+    var ReporteRespuesta: [ReporteRespuesta]
+}
+
+struct ReporteRespuesta: Codable {
+    var RespuestaId: Int?
+    var OpcionId: Int?
+    var Opcion: String?
+    var PreguntaId: Int?
+    var Pregunta: String?
+    var ModuloId: Int?
+    var Tema: String?
+    var PonderacionOpcion: Int?
+    var ReporteIncumplimientoRespuesta: [ReporteIncumplimiento]
+    var ReporteSubRespuesta: ReporteSubResp?
+}
+struct ReporteIncumplimiento: Codable {
+    var IncumplimientoId: Int?
+    var Descripcion: String?
+    var Estatus: String?
+    var FechaCompromiso: String?
+    var NivelIncumplimiento: String?
+}
+struct ReporteSubResp: Codable {
+    
+}

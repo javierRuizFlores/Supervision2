@@ -162,6 +162,7 @@ class SupervisionResumeViewController: UIViewController {
                 }
                 qrView.idUnitEdit = self.unitId
                 qrView.delegate = self
+                qrView.type = .supervision
                 self.present(qrView, animated: true, completion: nil)
             }
         } else {

@@ -11,7 +11,7 @@ import UIKit
 extension SupervisionListFormViewController : QuestionVMProtocol, PickerSelectViewDelegate, PauseReasonsVMProtocol {
     func questionUpdated(question: [[String : Any]]) {
         if question.count > 0 {
-            if self.isEditingSupervision {
+            if self.isEditingSupervision  && self.isEditingQuestion{
                 self.questionsDicto = question.filter({
                     guard let answered = $0[KeysQuestion.answered.rawValue] as? Bool else { return false }
                     return answered

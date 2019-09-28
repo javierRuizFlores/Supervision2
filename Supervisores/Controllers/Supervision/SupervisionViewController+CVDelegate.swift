@@ -40,7 +40,7 @@ extension SupervisionViewController: UICollectionViewDelegate, UICollectionViewD
                  questionListVC.isEditingQuestion = true
             }else{
                questionListVC.isEditingSupervision = self.isEditingSupervision
-                questionListVC.isEditingQuestion = self.isEditingSupervision
+                questionListVC.isEditingQuestion = false
             }
         }
         

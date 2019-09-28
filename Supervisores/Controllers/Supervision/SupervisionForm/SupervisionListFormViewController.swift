@@ -65,18 +65,10 @@ class SupervisionListFormViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if self.questions.count == 0 {
             if let moduleId = self.currentModule[KeysModule.id.rawValue] as? Int {
-                if isEditingSupervision == isEditingQuestion{
                 let questions = QuestionViewModel.shared.getQuestion(moduleId: moduleId, ovirrideCurrent: false, isEditing: self.isEditingSupervision,type: self.typeStore)
-                    if !questions {
-                        self.lottieView?.animationLoading()
-                    }
-                }else{
-                     let questions = QuestionViewModel.shared.getQuestion(moduleId: moduleId, ovirrideCurrent: false, isEditing: self.isEditingQuestion,type: self.typeStore)
-                    if !questions {
-                        self.lottieView?.animationLoading()
-                    }
+                if !questions {
+                    self.lottieView?.animationLoading()
                 }
-                
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
@@ -88,7 +80,7 @@ class SupervisionListFormViewController: UIViewController {
             self.pickerView!.showCancelButton()
         }
         PauseReasonsViewModel.shared.setListener(listener: self)
-       
+        
         if self.footerQuestion == nil {
             let width = self.questionsView.frame.width
             let heigth = self.questionsView.frame.height
@@ -98,7 +90,8 @@ class SupervisionListFormViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.lblNumberChanges.isHidden = true
+        self.lblNumberChanges.text = "\(countNewBreaches)"
+        self.lblNumberChanges.isHidden = countNewBreaches > 0 ? false:true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
@@ -269,7 +262,7 @@ class SupervisionListFormViewController: UIViewController {
     }
     func saveQuestion(){
         let (id, actionId, action, comment, hasBreach, dateSolutionCommon) = self.questions[self.currentQuestion].getQuestionResponse()
-        
+            self.lblNumberChanges.text = "\(self.countNewBreaches)"
         self.questions[self.currentQuestion].checkSendEmail()
         QuestionViewModel.shared.updateQuestionResponse(idQuestion: id, dateSolutionCommon: dateSolutionCommon,actionId: actionId, actionDescription: action, comment: comment, hasBreach: hasBreach, completeBreach: self.questions[self.currentQuestion].reachedReasonsComplete)
         QuestionViewModel.shared.saveQuestion(idQuestion: id, isEditing: self.isEditingSupervision)
@@ -286,7 +279,7 @@ class SupervisionListFormViewController: UIViewController {
 }
 extension SupervisionListFormViewController: ProtocolBreanch{
     func updateBreach() {
-         self.saveQuestion()
+       //  self.saveQuestion()
        
     }
     

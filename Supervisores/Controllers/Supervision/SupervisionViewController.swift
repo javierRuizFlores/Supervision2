@@ -82,6 +82,9 @@ class SupervisionViewController: UIViewController {
         self.btnPauseSupervision.layer.borderColor = UIColor.blue.cgColor
     }
     override func viewWillAppear(_ animated: Bool) {
+        if self.modulesList.count > 0 && supervisionComplete {
+            Storage.shared.completeCurrentSupervision()
+        }
         self.btnEndSupervision.isEnabled = true
         self.btnEndSupervision.alpha = 1.0
         self.loadingReasons = false
@@ -112,9 +115,7 @@ class SupervisionViewController: UIViewController {
                 break
             }
         }
-        if self.modulesList.count > 0 && supervisionComplete {
-            Storage.shared.completeCurrentSupervision()
-        }
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         if self.dissmisOnEnter {

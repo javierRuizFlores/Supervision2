@@ -44,7 +44,7 @@ enum EndPoints : String {
     case getEncuesta = "/dmz/v1/Encuesta/"
     case getContacto = "/dmz/v1/Contacto"
     case postEncuesta = "/dmz/v1/Encuesta/register"
-    
+    case getReports = "/dmz/v1/Supervision/reporte/"
     case getMessage = "/dmz/v1/Mensaje"
     case getWeighingRange = "/dmz/v1/RangoPonderacion/"
     case postEncuestasUsuario = "/dmz/v1/Encuesta/encuestaUsuario"
@@ -89,6 +89,14 @@ class NetworkingServices {
             parameters: parameters,
             token: nil,
             completion :{completionHandler($0, $1) })
+    }
+    func getReports(idUnit: Int, completionHandler: @escaping (Data?, Error?) -> Void){
+        let urlEndPoint = "\(EndPoints.URL_BASE.rawValue)\(EndPoints.getReports.rawValue)\(idUnit)"
+        networkingCore.makeCall( urlEndPoint: urlEndPoint,
+                                 httpMethod: .get,
+                                 parameters: nil,
+                                 token: self.getToken(),
+                                 completion :{completionHandler($0, $1) })
     }
     func getIndicadors(id: String, completionHandler: @escaping (Data?, Error?) -> Void){
         let urlEndPoint = "\(EndPoints.URL_BASE.rawValue)\(EndPoints.getAllBusiness.rawValue)\(id)"

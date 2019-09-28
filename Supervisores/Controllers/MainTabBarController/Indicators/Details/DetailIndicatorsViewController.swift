@@ -22,6 +22,7 @@ class DetailIndicatorsViewController: UIViewController {
     var lottieView : LottieViewController?
     var titleH = ""
     var symbol: String = "%"
+    var fail = false
    lazy var contentView : viewInputDetail = { return view as! viewInputDetail}()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +37,10 @@ class DetailIndicatorsViewController: UIViewController {
             self.model.loadChangeSymbol(type: self.type)
         }
         contentView.itemAction = {
+            if !self.fail{
             self.type = $0
             self.model.loadTypePharmacy(type: $0)
+            }
         }
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -61,9 +64,12 @@ extension DetailIndicatorsViewController: DetailModelOutput{
     }
     
     func modelDidFail() {
+        fail = true
     self.lottieView?.animationFinishError()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.1, execute: {
-           self.dismiss(animated: true, completion: nil)
+            
+            
+            
         })
         
     }

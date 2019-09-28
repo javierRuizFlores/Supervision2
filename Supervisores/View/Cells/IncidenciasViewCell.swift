@@ -37,7 +37,11 @@ class IncidenciasViewCell: UITableViewCell {
         self .size = motivos.count
        self.lblStatus.text = motivos[0].status!
         //self.lblStatus.text = ":)"
+        if motivos[0].nivelIncumplimiento != nil{
         self.lblNivelIncumplimiento.text = motivos[0].nivelIncumplimiento!
+        }else{
+           self.lblNivelIncumplimiento.text = ""
+        }
         self.lblDate.text = self.motivos[0].fechaCompromiso!
         self.tableView.reloadData()
     }
