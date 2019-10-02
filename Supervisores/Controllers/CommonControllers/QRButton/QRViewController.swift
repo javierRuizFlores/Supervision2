@@ -125,7 +125,11 @@ class QRViewController: UIViewController, QRReaderProtocol {
             supervision.nameSup = "\(supervisor["NombreCompleto"] as! String)"
             SupervisionViewController.unitId = idUnit
             supervision.TypeStore = jsonInfo["TipoFarmacia"] as! String
-        self.present(supervision, animated: true, completion: nil)
+            let viewController:UIViewController = UIStoryboard(name: "Storyboard", bundle: nil).instantiateViewController(withIdentifier: "Modulo") as UIViewController
+            // .instantiatViewControllerWithIdentifier() returns AnyObject! this must be downcast to utilize it
+            
+            //self.present(viewController, animated: false, completion: nil)
+       self.present(supervision, animated: true, completion: nil)
         }else if type == typeOperationStore.encuesta{
             let modelEncuesta = EncuestaModel()
             let vc = EncuestaViewController()

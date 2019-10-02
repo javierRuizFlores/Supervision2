@@ -326,6 +326,7 @@ extension CoreDataStorage {
         }
     }
     func savePhoto(photo: UIImage, position: Int, questionId: Int, isEditing: Bool){
+        
         print("GUARDANDO PHOTO CON EDIT ==>>>> ")
         DispatchQueue.main.async {
             if self.photoExist(position: position, questionId: questionId) {

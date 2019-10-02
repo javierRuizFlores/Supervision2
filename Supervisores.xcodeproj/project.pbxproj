@@ -187,6 +187,19 @@
 		887C89F622EB639C000AB8B6 /* CollectionViewCellVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887C89F422EB639C000AB8B6 /* CollectionViewCellVisit.swift */; };
 		887C89F722EB639C000AB8B6 /* CollectionViewCellVisit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887C89F522EB639C000AB8B6 /* CollectionViewCellVisit.xib */; };
 		887C8A0322EB7150000AB8B6 /* VisitViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887C8A0222EB7150000AB8B6 /* VisitViewDelegate.swift */; };
+		88926285233FC7350015B367 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88926284233FC7350015B367 /* Storyboard.storyboard */; };
+		88926288233FC9CB0015B367 /* Incuplimientos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88926287233FC9CB0015B367 /* Incuplimientos.swift */; };
+		8892628A233FD8830015B367 /* Modulo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88926289233FD8830015B367 /* Modulo.swift */; };
+		8892628E233FDF5A0015B367 /* PreguntaDoble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892628D233FDF5A0015B367 /* PreguntaDoble.swift */; };
+		88926290233FDF760015B367 /* PreguntaDoble.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8892628F233FDF760015B367 /* PreguntaDoble.xib */; };
+		88926292233FDFCE0015B367 /* PreguntaMultiple.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88926291233FDFCE0015B367 /* PreguntaMultiple.xib */; };
+		88926294233FE0020015B367 /* PreguntaMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88926293233FE0020015B367 /* PreguntaMultiple.swift */; };
+		88926296233FF1C70015B367 /* ModuloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88926295233FF1C70015B367 /* ModuloView.swift */; };
+		8892629B233FF2C00015B367 /* ModuloCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88926299233FF2C00015B367 /* ModuloCell.swift */; };
+		8892629C233FF2C00015B367 /* ModuloCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8892629A233FF2C00015B367 /* ModuloCell.xib */; };
+		8892629E233FF4960015B367 /* ModuloDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892629D233FF4960015B367 /* ModuloDataSource.swift */; };
+		889262A0233FF50A0015B367 /* ModuloItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8892629F233FF50A0015B367 /* ModuloItem.swift */; };
+		889262A2233FF7470015B367 /* ModuloDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889262A1233FF7470015B367 /* ModuloDelegate.swift */; };
 		889715EE23189D240007D849 /* EncuestasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889715EC23189D240007D849 /* EncuestasViewController.swift */; };
 		889715EF23189D240007D849 /* EncuestasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889715ED23189D240007D849 /* EncuestasViewController.xib */; };
 		889715F223189F020007D849 /* EncuestasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889715F123189F020007D849 /* EncuestasView.swift */; };
@@ -637,6 +650,19 @@
 		887C89F422EB639C000AB8B6 /* CollectionViewCellVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellVisit.swift; sourceTree = "<group>"; };
 		887C89F522EB639C000AB8B6 /* CollectionViewCellVisit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCellVisit.xib; sourceTree = "<group>"; };
 		887C8A0222EB7150000AB8B6 /* VisitViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitViewDelegate.swift; sourceTree = "<group>"; };
+		88926284233FC7350015B367 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		88926287233FC9CB0015B367 /* Incuplimientos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incuplimientos.swift; sourceTree = "<group>"; };
+		88926289233FD8830015B367 /* Modulo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modulo.swift; sourceTree = "<group>"; };
+		8892628D233FDF5A0015B367 /* PreguntaDoble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntaDoble.swift; sourceTree = "<group>"; };
+		8892628F233FDF760015B367 /* PreguntaDoble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreguntaDoble.xib; sourceTree = "<group>"; };
+		88926291233FDFCE0015B367 /* PreguntaMultiple.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreguntaMultiple.xib; sourceTree = "<group>"; };
+		88926293233FE0020015B367 /* PreguntaMultiple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreguntaMultiple.swift; sourceTree = "<group>"; };
+		88926295233FF1C70015B367 /* ModuloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloView.swift; sourceTree = "<group>"; };
+		88926299233FF2C00015B367 /* ModuloCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloCell.swift; sourceTree = "<group>"; };
+		8892629A233FF2C00015B367 /* ModuloCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModuloCell.xib; sourceTree = "<group>"; };
+		8892629D233FF4960015B367 /* ModuloDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloDataSource.swift; sourceTree = "<group>"; };
+		8892629F233FF50A0015B367 /* ModuloItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloItem.swift; sourceTree = "<group>"; };
+		889262A1233FF7470015B367 /* ModuloDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloDelegate.swift; sourceTree = "<group>"; };
 		889715EC23189D240007D849 /* EncuestasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncuestasViewController.swift; sourceTree = "<group>"; };
 		889715ED23189D240007D849 /* EncuestasViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EncuestasViewController.xib; sourceTree = "<group>"; };
 		889715F123189F020007D849 /* EncuestasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncuestasView.swift; sourceTree = "<group>"; };
@@ -1215,6 +1241,7 @@
 		88669F2B22CEAE70001879A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8892628B233FDD900015B367 /* New Group */,
 				889715F023189ED70007D849 /* Encuestas */,
 				8860573E2316DD5500B87DFD /* Encuesta */,
 				886BF7AA2314AE150012DFB9 /* Notas */,
@@ -1307,6 +1334,39 @@
 				887C8A0222EB7150000AB8B6 /* VisitViewDelegate.swift */,
 			);
 			path = Visit;
+			sourceTree = "<group>";
+		};
+		88926286233FC99C0015B367 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				88926287233FC9CB0015B367 /* Incuplimientos.swift */,
+				88926289233FD8830015B367 /* Modulo.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		8892628B233FDD900015B367 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				88926295233FF1C70015B367 /* ModuloView.swift */,
+				8892629D233FF4960015B367 /* ModuloDataSource.swift */,
+				889262A1233FF7470015B367 /* ModuloDelegate.swift */,
+				8892628C233FDDBF0015B367 /* New Group */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		8892628C233FDDBF0015B367 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				8892628D233FDF5A0015B367 /* PreguntaDoble.swift */,
+				8892628F233FDF760015B367 /* PreguntaDoble.xib */,
+				88926291233FDFCE0015B367 /* PreguntaMultiple.xib */,
+				88926293233FE0020015B367 /* PreguntaMultiple.swift */,
+				88926299233FF2C00015B367 /* ModuloCell.swift */,
+				8892629A233FF2C00015B367 /* ModuloCell.xib */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		889715EB23189CC50007D849 /* Encuestas */ = {
@@ -1461,6 +1521,7 @@
 				88CF991521ECD21400E46F0F /* LaunchScreen.storyboard */,
 				88CF991821ECD21400E46F0F /* Info.plist */,
 				8860574B2316FE8000B87DFD /* GoogleService-Info.plist */,
+				88926284233FC7350015B367 /* Storyboard.storyboard */,
 			);
 			path = Supervisores;
 			sourceTree = "<group>";
@@ -1486,6 +1547,7 @@
 		88CF993A21ECF3FB00E46F0F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				88926286233FC99C0015B367 /* New Group */,
 				887C89E622EB3FFF000AB8B6 /* Visit */,
 				885F630122D8EB6F0034A284 /* PopUp */,
 				88CF99CE21F6172000E46F0F /* CommonInit.swift */,
@@ -1568,6 +1630,7 @@
 				8897162C232602330007D849 /* MessageModel.swift */,
 				886207492328430C00B79BAC /* WeighingRange.swift */,
 				8840796D2332A13300ECE6A3 /* newElementsModel.swift */,
+				8892629F233FF50A0015B367 /* ModuloItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2163,7 +2226,9 @@
 				886BF79F23149F910012DFB9 /* NavBarUnitDetailViewController.xib in Resources */,
 				88F0B19422025D0D00153C04 /* UnitDetailViewController.xib in Resources */,
 				88CF99D921F639EE00E46F0F /* QrReaderViewController.xib in Resources */,
+				88926285233FC7350015B367 /* Storyboard.storyboard in Resources */,
 				88DE671722FCB0E600F97107 /* VisitMotivosCell.xib in Resources */,
+				88926292233FDFCE0015B367 /* PreguntaMultiple.xib in Resources */,
 				88CF99C221F12DCB00E46F0F /* blocks.geojson in Resources */,
 				88549A7E2239AAF000473554 /* supervisionGood.json in Resources */,
 				889715EF23189D240007D849 /* EncuestasViewController.xib in Resources */,
@@ -2190,6 +2255,7 @@
 				88669F3422CFC56F001879A1 /* CollectionViewCellIndicator.xib in Resources */,
 				88439C59220B861A0085BA14 /* success.json in Resources */,
 				883FA70B22137E2500EE2A5B /* switch.json in Resources */,
+				8892629C233FF2C00015B367 /* ModuloCell.xib in Resources */,
 				88439C4C220A357B0085BA14 /* SupervisionNavBarViewController.xib in Resources */,
 				EED38A2B22152326004C85C1 /* WaterMarkView.xib in Resources */,
 				EE7F9C4E2210AACB0035A558 /* ChoiceCell.xib in Resources */,
@@ -2201,6 +2267,7 @@
 				885F631622E0DD150034A284 /* TableViewCellUnit.xib in Resources */,
 				EE38B78C21F569CF00582F86 /* UnitCell.xib in Resources */,
 				88DE670F22FB61A500F97107 /* IncidenciasPopUp.xib in Resources */,
+				88926290233FDF760015B367 /* PreguntaDoble.xib in Resources */,
 				8865444E21F7C34100C4A07F /* SupervisionViewController.xib in Resources */,
 				88F0B1832202592700153C04 /* IndicatorsViewController.xib in Resources */,
 				88439C51220A437D0085BA14 /* SupervisionItemCollectionViewCell.xib in Resources */,
@@ -2419,6 +2486,7 @@
 				88E05E0822D54AED008062EA /* DetailIndicatorsViewController.swift in Sources */,
 				88669F3322CFC56F001879A1 /* CollectionViewCellIndicator.swift in Sources */,
 				88141800223AD18000A8D8F6 /* CoreData+Deletes.swift in Sources */,
+				8892628A233FD8830015B367 /* Modulo.swift in Sources */,
 				88CF997321EE654D00E46F0F /* PickerSelectView.swift in Sources */,
 				883FA6E72211DE5E00EE2A5B /* BinaryQProtocol.swift in Sources */,
 				88BEF5B2228B1D660041BC87 /* PastSupervision.swift in Sources */,
@@ -2430,6 +2498,7 @@
 				88439C55220A453F0085BA14 /* SupervisionViewController+CVDelegate.swift in Sources */,
 				8865445C21F8CEFE00C4A07F /* Unit.swift in Sources */,
 				8813C3CF2225E8AB0074D597 /* MapView+MapDelegate.swift in Sources */,
+				88926288233FC9CB0015B367 /* Incuplimientos.swift in Sources */,
 				88BEF5AA228342210041BC87 /* SimpleStorage.swift in Sources */,
 				EEDB0DFF223897EB0078F55F /* BreachReasonSubOptions.swift in Sources */,
 				8851ADD022556AD500410F27 /* ActionsViewModel.swift in Sources */,
@@ -2471,6 +2540,7 @@
 				88439C4B220A357B0085BA14 /* SupervisionNavBarViewController.swift in Sources */,
 				886057462316EA9300B87DFD /* EncuestaDataSource.swift in Sources */,
 				8813C3CB22248FF40074D597 /* UnitsMapViewModel.swift in Sources */,
+				88926296233FF1C70015B367 /* ModuloView.swift in Sources */,
 				88439C53220A45300085BA14 /* SupervisionViewController+CVDataSource.swift in Sources */,
 				88DE673A2306251900F97107 /* MotivoCell.swift in Sources */,
 				88DE670E22FB61A500F97107 /* IncidenciasPopUp.swift in Sources */,
@@ -2510,6 +2580,7 @@
 				887C89F622EB639C000AB8B6 /* CollectionViewCellVisit.swift in Sources */,
 				886BF7AC2314AE330012DFB9 /* NotasView.swift in Sources */,
 				883FA71222147FB700EE2A5B /* BreachReasonView.swift in Sources */,
+				8892628E233FDF5A0015B367 /* PreguntaDoble.swift in Sources */,
 				EE38B76521F53B9000582F86 /* LoginViewController.swift in Sources */,
 				886BF79E23149F910012DFB9 /* NavBarUnitDetailViewController.swift in Sources */,
 				886BF7B32314B4A10012DFB9 /* NuevaNotaPopUp.swift in Sources */,
@@ -2538,6 +2609,7 @@
 				EE29F6BC22015FD200C274D7 /* ExtendsUI.swift in Sources */,
 				88666EB4224AE367004EBECA /* LoadSupervisionToSend.swift in Sources */,
 				887C89E922EB4042000AB8B6 /* VisitViewViewController.swift in Sources */,
+				889262A0233FF50A0015B367 /* ModuloItem.swift in Sources */,
 				883FA6C32211CC3100EE2A5B /* SupervisionListFormViewController.swift in Sources */,
 				EED38A2E22165500004C85C1 /* EditPhotoViewController.swift in Sources */,
 				88C76D9022283F430075ABB7 /* StorageProtocol.swift in Sources */,
@@ -2556,6 +2628,7 @@
 				887C89E322E274F5000AB8B6 /* Privileges.swift in Sources */,
 				88C76D9C2229EAE00075ABB7 /* Storage.swift in Sources */,
 				889716282325FFBC0007D849 /* MessageCell.swift in Sources */,
+				88926294233FE0020015B367 /* PreguntaMultiple.swift in Sources */,
 				885F630922D8EC0E0034A284 /* OderIndicatorPopUp.swift in Sources */,
 				88CF998521EFAE2800E46F0F /* LocationDelegate.swift in Sources */,
 				88669F4622D3ACF8001879A1 /* CollectionViewCell.swift in Sources */,
@@ -2579,6 +2652,7 @@
 				88CF994221ECF5FC00E46F0F /* MapViewController.swift in Sources */,
 				883FA6C72211CE8E00EE2A5B /* ThreeOptionsView.swift in Sources */,
 				885F631522E0DD150034A284 /* TableViewCellUnit.swift in Sources */,
+				889262A2233FF7470015B367 /* ModuloDelegate.swift in Sources */,
 				88BEF5A1228209340041BC87 /* SecureStorageProtocol.swift in Sources */,
 				88E05DFD22D3DE72008062EA /* IndicatorModel.swift in Sources */,
 				88CF99AB21EFEA5200E46F0F /* MapsProtocol.swift in Sources */,
@@ -2604,6 +2678,7 @@
 				8862074A2328430C00B79BAC /* WeighingRange.swift in Sources */,
 				88E05E0C22D6303D008062EA /* DetailIndicatorView.swift in Sources */,
 				885F62F722D77FFF0034A284 /* IndicatorCatalog.swift in Sources */,
+				8892629B233FF2C00015B367 /* ModuloCell.swift in Sources */,
 				88CF990A21ECD21200E46F0F /* AppDelegate.swift in Sources */,
 				885F62FD22D7B6630034A284 /* DetailIndicatorStyle.swift in Sources */,
 				EE28F09B2255C9AF0036F8B9 /* TimeSupervisionViewModel.swift in Sources */,
@@ -2616,6 +2691,7 @@
 				88DE670722F4947D00F97107 /* GeneralCloseModel.swift in Sources */,
 				885F62ED22D665510034A284 /* DataSourceDetailIndicator.swift in Sources */,
 				885F631122DFE6150034A284 /* CollectionViewCellUnit.swift in Sources */,
+				8892629E233FF4960015B367 /* ModuloDataSource.swift in Sources */,
 				886BF7B82314B8560012DFB9 /* NotasDelegate.swift in Sources */,
 				88549A75223830A200473554 /* EndSupervision.swift in Sources */,
 				883FA7192214853500EE2A5B /* BreachReason+Protocol.swift in Sources */,

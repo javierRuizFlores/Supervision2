@@ -157,4 +157,7 @@ protocol MessageModelOutput {
 protocol didSelectOptionCell {
     func didSelected(option: [String:Any])
 }
-
+protocol ModuloViewInput {
+    func display(modulo: ModuloItem)
+    var dataSource: ModuloDataSource! {get set}
+}

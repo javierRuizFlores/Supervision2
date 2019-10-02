@@ -270,7 +270,7 @@ class BreachReasonView: UIView {
             if self.photoForced {
                 if self.photos?.currentPhoto == 0 {
                   
-                    breachComplete = false
+                    //breachComplete = false
                 }
             }
             if !self.hasBreachLevel{

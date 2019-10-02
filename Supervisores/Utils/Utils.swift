@@ -18,6 +18,7 @@ class Utils {
     static let dateFormatter = DateFormatter()
     static var calendar : EKCalendar?
     static var nameUnit: String!
+    static var photos: [UIImage] = []
     static func removeAllNonNumeric(text: String) -> Double {
         let digitChars  = text.components(separatedBy:
             CharacterSet.decimalDigits.inverted).joined(separator: "")
